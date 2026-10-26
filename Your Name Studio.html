@@ -1,0 +1,266 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Your Name Studio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: single-page portfolio. Wide left-aligned hero, offset section headings, asymmetric portfolio grid, contact panel with number and socials. */
+:root {
+  --bg: #f2f4ee;
+  --surface: #e6eadf;
+  --fg: #15201c;
+  --muted: #55625b;
+  --accent: #1f6f54;
+  --accent-fg: #f2f4ee;
+  --mark: #e8b931;
+  --line: #cfd6c9;
+  --font-display: "Bricolage Grotesque", "Arial Narrow", Arial, sans-serif;
+  --font-body: "Instrument Sans", "Segoe UI", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1714; --surface: #17221d; --fg: #e9eee9; --muted: #9aaaa1;
+    --accent: #5ccb9c; --accent-fg: #0f1714; --mark: #e8b931; --line: #263530;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1714; --surface: #17221d; --fg: #e9eee9; --muted: #9aaaa1;
+  --accent: #5ccb9c; --accent-fg: #0f1714; --mark: #e8b931; --line: #263530;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font: 400 17px/1.6 var(--font-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.wrap { max-width: 1080px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.05; margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.6rem, 8vw, 5.6rem); font-weight: 800; }
+h2 { font-size: clamp(1.9rem, 4.5vw, 3rem); font-weight: 700; }
+h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; }
+p { margin: 0; max-width: 62ch; }
+.label { font: 600 0.78rem/1 var(--font-body); text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); }
+section { padding-block: clamp(56px, 9vw, 104px); border-top: 1px solid var(--line); }
+
+/* Header */
+header { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; justify-content: space-between; padding-block: 22px; }
+.brand { font: 800 1.25rem var(--font-display); text-decoration: none; letter-spacing: -0.02em; }
+nav { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+nav a { text-decoration: none; font-weight: 500; font-size: 0.95rem; color: var(--muted); }
+nav a:hover { color: var(--fg); }
+
+/* Hero */
+.hero { border-top: 0; padding-top: clamp(40px, 7vw, 88px); }
+.hero h1 span { background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); }
+.hero p.lead { font-size: 1.2rem; color: var(--muted); margin-top: 28px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+.btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 4px; font-weight: 600; text-decoration: none; border: 2px solid var(--accent); }
+.btn.primary { background: var(--accent); color: var(--accent-fg); }
+.btn.ghost { color: var(--fg); border-color: var(--fg); }
+.btn:hover { transform: translateY(-2px); }
+.stats { display: flex; flex-wrap: wrap; gap: 14px 48px; margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line); }
+.stats div { min-width: 0; }
+.stats b { display: block; font: 800 2rem var(--font-display); font-variant-numeric: tabular-nums; }
+.stats span { color: var(--muted); font-size: 0.9rem; }
+
+/* Section heading row */
+.head { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; margin-bottom: 44px; }
+
+/* About */
+.about { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; align-items: start; }
+.portrait { aspect-ratio: 4/5; max-width: 100%; background: var(--surface); border: 1px solid var(--line); display: grid; place-items: center; text-align: center; padding: 20px; color: var(--muted); font-size: 0.9rem; position: relative; }
+.portrait::after { content: ""; position: absolute; right: -10px; bottom: -10px; width: 46%; height: 18%; background: var(--mark); z-index: -1; }
+.about-text { display: grid; gap: 18px; }
+.skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; padding: 0; list-style: none; }
+.skills li { padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: 0.9rem; background: var(--surface); }
+
+/* Services */
+.services { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0; border: 1px solid var(--line); }
+.service { padding: 30px 26px 34px; display: grid; gap: 12px; align-content: start; min-width: 0; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+.service p { color: var(--muted); font-size: 0.98rem; }
+.service .tag { font: 600 0.76rem var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+
+/* Portfolio */
+.grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px; }
+.work { grid-column: span 2; display: grid; gap: 12px; min-width: 0; text-decoration: none; }
+.work:nth-child(1), .work:nth-child(4) { grid-column: span 3; }
+.thumb { aspect-ratio: 4/3; border: 1px solid var(--line); position: relative; overflow: hidden; background: var(--surface); }
+.work:nth-child(1) .thumb, .work:nth-child(4) .thumb { aspect-ratio: 16/10; }
+.thumb i { position: absolute; display: block; }
+.t1 i:nth-child(1) { inset: 14% 40% 14% 10%; background: var(--accent); }
+.t1 i:nth-child(2) { inset: 14% 10% 52% 64%; background: var(--mark); }
+.t1 i:nth-child(3) { inset: 56% 10% 14% 64%; border: 3px solid var(--fg); }
+.t2 i:nth-child(1) { left: 12%; top: 18%; width: 50%; height: 64%; border-radius: 50%; background: var(--accent); }
+.t2 i:nth-child(2) { left: 44%; top: 30%; width: 40%; height: 52%; border-radius: 50%; background: var(--mark); mix-blend-mode: multiply; }
+.t2 i:nth-child(3) { display: none; }
+.t3 i:nth-child(1) { inset: 12% 12% 12% 12%; border: 3px solid var(--fg); }
+.t3 i:nth-child(2) { inset: 12% 52% 12% 12%; background: var(--accent); }
+.t3 i:nth-child(3) { inset: 62% 12% 12% 52%; background: var(--mark); }
+.t4 i:nth-child(1) { left: 10%; bottom: 14%; width: 14%; height: 36%; background: var(--accent); }
+.t4 i:nth-child(2) { left: 30%; bottom: 14%; width: 14%; height: 62%; background: var(--fg); }
+.t4 i:nth-child(3) { left: 50%; bottom: 14%; width: 14%; height: 48%; background: var(--mark); }
+.t5 i:nth-child(1) { inset: 0 50% 0 0; background: var(--accent); }
+.t5 i:nth-child(2) { inset: 0 0 50% 50%; background: var(--mark); }
+.t5 i:nth-child(3) { inset: 50% 0 0 50%; background: var(--surface); border-left: 3px solid var(--fg); }
+.t6 i:nth-child(1) { left: 14%; top: 20%; width: 72%; height: 12%; background: var(--fg); }
+.t6 i:nth-child(2) { left: 14%; top: 42%; width: 48%; height: 12%; background: var(--accent); }
+.t6 i:nth-child(3) { left: 14%; top: 64%; width: 60%; height: 12%; background: var(--mark); }
+.work h3 { font-size: 1.15rem; }
+.work span.meta { color: var(--muted); font-size: 0.9rem; }
+.work:hover h3 { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; text-decoration-thickness: 2px; }
+
+/* Testimonials */
+.quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
+blockquote { margin: 0; padding: 28px 26px; background: var(--surface); display: grid; gap: 22px; align-content: space-between; min-width: 0; }
+blockquote p { font: 500 1.12rem/1.5 var(--font-display); letter-spacing: -0.005em; }
+blockquote footer { font-size: 0.9rem; color: var(--muted); padding: 0; display: block; }
+blockquote footer b { display: block; color: var(--fg); font-weight: 600; }
+
+/* Contact */
+.contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start; }
+.panel { border: 2px solid var(--fg); padding: 28px; display: grid; gap: 22px; min-width: 0; }
+.phone { font: 800 clamp(1.5rem, 4.5vw, 2.1rem) var(--font-display); letter-spacing: -0.01em; user-select: all; overflow-wrap: anywhere; }
+.row { display: flex; flex-wrap: wrap; gap: 10px; }
+.copy { font: 600 0.95rem var(--font-body); min-height: 44px; padding: 0 18px; background: transparent; color: var(--fg); border: 2px solid var(--fg); border-radius: 4px; cursor: pointer; }
+.copy:hover { background: var(--fg); color: var(--bg); }
+.socials { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 0; list-style: none; }
+.socials a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid var(--line); background: var(--surface); text-decoration: none; font-weight: 500; border-radius: 4px; }
+.socials a:hover { border-color: var(--accent); color: var(--accent); }
+footer.site { border-top: 1px solid var(--line); padding-block: 28px; color: var(--muted); font-size: 0.9rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; }
+
+@media (max-width: 760px) {
+  .about, .contact { grid-template-columns: minmax(0, 1fr); }
+  .portrait { max-width: 320px; }
+  .work, .work:nth-child(1), .work:nth-child(4) { grid-column: span 6; }
+  .work .thumb, .work:nth-child(1) .thumb, .work:nth-child(4) .thumb { aspect-ratio: 16/10; }
+}
+@media (prefers-reduced-motion: reduce) { .btn:hover { transform: none; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <a class="brand" href="#top">Your Name</a>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <p class="label">Digital studio · Pakistan</p>
+    <h1 style="margin-top:18px">Websites and content that <span>bring in clients</span>.</h1>
+    <p class="lead">I design and build clear, fast websites and brand content for small businesses, using the best AI tools to deliver faster without cutting quality.</p>
+    <div class="actions">
+      <a class="btn primary" href="#contact">Start a project</a>
+      <a class="btn ghost" href="#portfolio">See my work</a>
+    </div>
+    <div class="stats">
+      <div><b>50+</b><span>Projects delivered</span></div>
+      <div><b>30+</b><span>Happy clients</span></div>
+      <div><b>3 yrs</b><span>Working with AI tools</span></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="head"><p class="label">About</p><h2>Hi, I'm Your Name.</h2></div>
+    <div class="about">
+      <div class="portrait" role="img" aria-label="Photo placeholder">Replace with your photo</div>
+      <div class="about-text">
+        <p>I help business owners get a professional online presence without the long waits. I combine my own design judgment with AI tools for research, writing, imagery and code, then check every detail by hand before it reaches you.</p>
+        <p>You work directly with me from the first call to launch. You get a clear price, a clear timeline and a site you can update yourself.</p>
+        <ul class="skills" aria-label="Skills">
+          <li>Web design</li><li>Landing pages</li><li>Branding</li><li>AI content</li><li>Social media</li><li>SEO basics</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="head"><p class="label">Services</p><h2>What I can do for you</h2></div>
+    <div class="services">
+      <article class="service"><span class="tag">Build</span><h3>Website design</h3><p>A modern, mobile-friendly site for your business, from a single landing page to a full multi-page website.</p></article>
+      <article class="service"><span class="tag">Identity</span><h3>Branding and logos</h3><p>Logo, colors and fonts that make your business look consistent on your site, packaging and social media.</p></article>
+      <article class="service"><span class="tag">Write</span><h3>AI-assisted content</h3><p>Website copy, product descriptions and blog posts, edited by a person so they sound like your business.</p></article>
+      <article class="service"><span class="tag">Grow</span><h3>Social media</h3><p>Post designs, captions and a monthly plan to keep your Instagram and Facebook pages active.</p></article>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="head"><p class="label">Portfolio</p><h2>Selected work</h2></div>
+    <div class="grid">
+      <a class="work" href="#portfolio"><div class="thumb t1"><i></i><i></i><i></i></div><h3>Project One</h3><span class="meta">Website design · Restaurant</span></a>
+      <a class="work" href="#portfolio"><div class="thumb t2"><i></i><i></i><i></i></div><h3>Project Two</h3><span class="meta">Branding · Clothing label</span></a>
+      <a class="work" href="#portfolio"><div class="thumb t3"><i></i><i></i><i></i></div><h3>Project Three</h3><span class="meta">Landing page · Clinic</span></a>
+      <a class="work" href="#portfolio"><div class="thumb t4"><i></i><i></i><i></i></div><h3>Project Four</h3><span class="meta">Online store · Electronics</span></a>
+      <a class="work" href="#portfolio"><div class="thumb t5"><i></i><i></i><i></i></div><h3>Project Five</h3><span class="meta">Social media · Cafe</span></a>
+      <a class="work" href="#portfolio"><div class="thumb t6"><i></i><i></i><i></i></div><h3>Project Six</h3><span class="meta">Content · Real estate</span></a>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <div class="head"><p class="label">Testimonials</p><h2>What clients say</h2></div>
+    <div class="quotes">
+      <blockquote><p>Our new website was ready in a week and customers started messaging us right away.</p><footer><b>Client Name</b>Owner, Business Name</footer></blockquote>
+      <blockquote><p>Clear communication and fair pricing. He understood our brand without long explanations.</p><footer><b>Client Name</b>Founder, Business Name</footer></blockquote>
+      <blockquote><p>The content he wrote for our social pages saved us hours every week.</p><footer><b>Client Name</b>Manager, Business Name</footer></blockquote>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <div style="display:grid;gap:14px">
+        <p class="label">Contact</p>
+        <h2>Let's talk about your project.</h2>
+        <p style="color:var(--muted)">Call or message me on WhatsApp. Tell me what your business does and what you need, and I will reply with a plan and a price.</p>
+      </div>
+      <div class="panel">
+        <div style="display:grid;gap:8px">
+          <span class="label">Phone / WhatsApp</span>
+          <div class="phone" id="phone">+92 302 4662423</div>
+          <div class="row">
+            <a class="btn primary" href="https://wa.me/923024662423" target="_blank" rel="noopener">Message on WhatsApp</a>
+            <button class="copy" id="copy" type="button">Copy number</button>
+          </div>
+        </div>
+        <div style="display:grid;gap:10px">
+          <span class="label">Follow me</span>
+          <ul class="socials">
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="https://x.com/" target="_blank" rel="noopener">X</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site"><span>© 2026 Your Name. All rights reserved.</span><a href="#top">Back to top</a></footer>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy');
+  var num = document.getElementById('phone');
+  btn.addEventListener('click', function () {
+    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy number'; }, 1800); };
+    var fallback = function () {
+      var r = document.createRange(); r.selectNodeContents(num);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = 'Number selected';
+    };
+    try { navigator.clipboard.writeText('+92 302 4662423').then(done, fallback); } catch (e) { fallback(); }
+  });
+})();
+</script>
+
+</body></html>
