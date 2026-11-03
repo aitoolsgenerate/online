@@ -146,6 +146,9 @@ nav a:hover { color: var(--fg); }
 .project .shot { aspect-ratio: 16/9; display: grid; place-items: center; background: var(--navy); position: relative; }
 .project .shot svg { width: 44px; height: 44px; stroke: #f4c752; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .project .shot::after { content: "Playlist"; position: absolute; right: 12px; bottom: 10px; font: 700 0.7rem var(--font-body); letter-spacing: .12em; text-transform: uppercase; color: var(--navy-muted); }
+.project .shot.has-img { aspect-ratio: 1214/1296; background: var(--navy); }
+.project .shot.has-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.project .shot.has-img::after { display: none; }
 .project .info { padding: 16px 20px 20px; display: grid; gap: 4px; }
 .project .cat { font: 700 0.74rem var(--font-body); text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold-text); }
 .go { margin-top: 6px; font-weight: 700; font-size: 0.9rem; color: var(--accent); }
@@ -315,7 +318,7 @@ nav a:hover { color: var(--fg); }
       </div>
     </a>
     <div class="projects">
-      <a class="project" href="https://youtube.com/playlist?list=PLBcPsAYmG_bI&si=g54Sjsfk_VcHUbrW" target="_blank" rel="noopener"><div class="shot"><svg viewBox="0 0 24 24"><use href="#i-code"/></svg></div><div class="info"><span class="cat">بچوں کی کہانیاں</span><h3>بچوں کی کہانیاں</h3><span class="go">Open playlist →</span></div></a>
+      <a class="project" href="https://youtube.com/playlist?list=PLBcPsAYmG_bI&si=g54Sjsfk_VcHUbrW" target="_blank" rel="noopener"><div class="shot has-img"><img src="playlist-cover.webp" alt="بچوں کی کہانیاں playlist cover" width="1214" height="1296" loading="lazy"></div><div class="info"><span class="cat">بچوں کی کہانیاں</span><h3>بچوں کی کہانیاں</h3><span class="go">Open playlist →</span></div></a>
       <a class="project" href="https://www.youtube.com/" target="_blank" rel="noopener"><div class="shot"><svg viewBox="0 0 24 24"><use href="#i-ai"/></svg></div><div class="info"><span class="cat">AI and technology</span><h3>AI tools for beginners</h3><span class="go">Open playlist →</span></div></a>
       <a class="project" href="https://www.youtube.com/" target="_blank" rel="noopener"><div class="shot"><svg viewBox="0 0 24 24"><use href="#i-laptop"/></svg></div><div class="info"><span class="cat">IT skills</span><h3>IT skills for jobs</h3><span class="go">Open playlist →</span></div></a>
     </div>
